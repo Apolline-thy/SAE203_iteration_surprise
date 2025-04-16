@@ -1,26 +1,27 @@
 <div class="film">
   <div class="film__content">
-    <img class="film__img" src="../server/images/{{image}}" />
     <div class="film__text">
+      <p class="film__item">{{category}}</p>
       <h3 class="film__titre">{{name}}</h3>
+      <p class="film__item">{{year}}</p>
       <p class="film__description">{{description}}</p>
-      <p class="film__description--realisateur">Réalisateurs : {{director}}</p>
-      <ul class="film__list">
-        <li class="film__item">{{year}}</li>
-        <li class="film__item--age">{{min_age}}</li>
-        <li class="film__item">{{category}}</li>
-      </ul>
+      <button class="film__button">▶ Regarder</button>
     </div>
+    <iframe
+      class="film__trailer"
+      width="60%"
+      height="315"
+      src="{{trailer}}"
+      title="Trailer du film"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
   </div>
-  <iframe
-    class="film__trailer"
-    width="40%"
-    height="315"
-    src="{{trailer}}"
-    title="Trailer du film"
-    frameborder="0"
-    allow="autoplay; encrypted-media; picture-in-picture"
-    allowfullscreen
-  >
-  </iframe>
+  <h4 class="film__titre">A propos</h4>
+  <p class="film__description--realisateur">Réalisateurs : {{director}}</p>
+  <ul class="film__list">
+    <li class="film__item--age">{{min_age}}</li>
+  </ul>
 </div>

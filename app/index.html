@@ -176,6 +176,13 @@
             "<p>Aucun film ne correspond à votre recherche.</p>";
         }
       };
+      function toggleSearchInput() {
+        const searchInput = document.getElementById("search-input");
+        searchInput.classList.toggle("visible");
+        if (searchInput.classList.contains("visible")) {
+          searchInput.focus(); // focus quand il apparaît
+        }
+      }
 
       C.start = async function () {
         let profiles = await DataProfile.read();

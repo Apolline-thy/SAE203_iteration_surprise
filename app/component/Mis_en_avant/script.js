@@ -20,7 +20,6 @@ Mis_en_avant.format = function (obj) {
     cardsHTML += card;
   }
 
-  // Remplacer le placeholder {{cards}} dans le template principal par les cartes générées
   html = html.replace("{{cards}}", cardsHTML);
   return html;
 };

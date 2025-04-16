@@ -12,7 +12,6 @@ Movie.format = function (movies) {
 
   for (let movie of movies) {
     let card = templateCards;
-    card = card.replace("{{name}}", movie.name);
     card = card.replace("{{image}}", movie.image);
     card = card.replace("{{handler}}", `C.handlerDetail(${movie.id})`);
     card = card.replace("{{handlerFavoris}}", `C.handlerFavoris(${movie.id})`);
