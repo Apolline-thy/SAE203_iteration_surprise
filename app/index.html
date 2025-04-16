@@ -176,6 +176,25 @@
             "<p>Aucun film ne correspond à votre recherche.</p>";
         }
       };
+      C.scrollLeft = function () {
+        const cardsReco = document.querySelector(".cardsreco");
+        if (cardsReco) {
+          cardsReco.scrollBy({
+            left: -300,
+            behavior: "smooth",
+          });
+        }
+      };
+
+      C.scrollRight = function () {
+        const cardsReco = document.querySelector(".cardsreco");
+        if (cardsReco) {
+          cardsReco.scrollBy({
+            left: 300,
+            behavior: "smooth",
+          });
+        }
+      };
 
       C.start = async function () {
         let profiles = await DataProfile.read();
@@ -187,7 +206,7 @@
         }
         V.renderNavBar("C.handlerAbout()", profiles);
         C.getMovie();
-        C.getFeaturedMovies();
+        await C.getFeaturedMovies();
       };
 
       C.getMovie = async function () {
