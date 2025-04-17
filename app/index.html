@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
   <head>
     <title>SAE2.03 APP</title>
@@ -273,6 +273,146 @@
       };
 
       C.start(); // Démarre l'application
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>SAE2.03 APP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
+
+  <body>
+    <header id="header"></header>
+    <section id="featured-movies"></section>
+    <section id="content"></section>
+
+    <script type="module">
+      // Définir C avant tout autre code
+      window.C = {};
+
+      // Importation des modules
+      import { NavBar } from "./component/NavBar/script.js";
+      import { Movie } from "./component/Movie/script.js";
+      import { DataMovie } from "./data/dataMovie.js";
+      import { MovieDetail } from "./component/MovieDetail/script.js";
+      import { MovieCategory } from "./component/MovieCategory/script.js";
+      import { DataProfile } from "./data/dataProfile.js";
+      import { Mis_en_avant } from "./component/Mis_en_avant/script.js";
+
+      // Définitions des fonctions de contrôle (par exemple, C.getFeaturedMovies)
+      C.getFeaturedMovies = async function () {
+        let featuredMovies = await DataMovie.readMoviesRecommended();
+        let content = document.querySelector("#featured-movies");
+
+        if (!featuredMovies || featuredMovies.length === 0) {
+          content.innerHTML = "<p>Aucun film mis en avant pour le moment.</p>";
+        } else {
+          content.innerHTML = Mis_en_avant.format(featuredMovies);
+        }
+      };
+
+      C.scrollLeftMovie = function () {
+        const cards = document.querySelector(".cards");
+        if (cards) {
+          cards.scrollBy({ left: -300, behavior: "smooth" });
+        } else {
+          console.warn("Pas de .cards trouvé !");
+        }
+      };
+
+      C.scrollRightMovie = function () {
+        const cards = document.querySelector(".cards");
+        if (cards) {
+          cards.scrollBy({ left: 300, behavior: "smooth" });
+        } else {
+          console.warn("Pas de .cards trouvé !");
+        }
+      };
+
+      C.start = async function () {
+        let profiles = await DataProfile.read();
+        if (!profiles || profiles.length === 0) {
+          console.error("Aucun profil récupéré !");
+          document.querySelector("#header").innerHTML =
+            "<p>Erreur : Impossible de récupérer les profils.</p>";
+          return;
+        }
+        V.renderNavBar("C.handlerAbout()", profiles);
+        C.getMovie();
+        await C.getFeaturedMovies();
+      };
+
+      C.getMovie = async function () {
+        const profileSelect = document.querySelector("#profile-select");
+        const selectedOption =
+          profileSelect.options[profileSelect.selectedIndex];
+        const age = selectedOption
+          ? parseInt(selectedOption.getAttribute("data-age")) || 0
+          : 0;
+
+        console.log("Âge du profil sélectionné :", age);
+
+        let data;
+        if (age === 0) {
+          console.log(
+            "Aucun profil sélectionné, récupération de tous les films."
+          );
+          data = await DataMovie.requestMovieCategory(); // Déjà groupé
+        } else {
+          let flatMovies = await DataMovie.request(age); // Liste plate de films
+
+          // On regroupe les films par catégorie
+          data = [];
+          let categories = {};
+
+          for (let movie of flatMovies) {
+            if (!categories[movie.category]) {
+              categories[movie.category] = {
+                name: movie.category, // Correction ici
+                movies: [],
+              };
+            }
+            categories[movie.category].movies.push(movie);
+          }
+
+          data = Object.values(categories); // On récupère un tableau des objets catégorie
+        }
+
+        console.log("Données regroupées :", data);
+
+        if (!data || data.length === 0) {
+          document.querySelector("#content").innerHTML =
+            "<p>Aucun film disponible pour votre tranche d'âge.</p>";
+        } else {
+          V.renderMoviesByCategory(data); // Tu peux maintenant l'utiliser dans tous les cas
+        }
+      };
+
+      // Fonction de rendu
+      window.V = {};
+
+      V.renderNavBar = function (hAbout, profiles) {
+        let header = document.querySelector("#header");
+        header.innerHTML = NavBar.format(hAbout, profiles);
+      };
+
+      V.renderMovie = function (movies) {
+        let content = document.querySelector("#content");
+        content.innerHTML = Movie.format(movies); // une seule fois, avec un tableau complet
+      };
+
+      V.renderMoviesByCategory = function (data) {
+        let content = document.querySelector("#content");
+        content.innerHTML = data.map(MovieCategory.format).join(""); // Format each category
+      };
+
+      // Lancement de l'application
+      C.start();
     </script>
   </body>
 </html>
