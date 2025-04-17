@@ -16,7 +16,7 @@ NavBar.format = function (hAbout, profiles) {
 
   console.log("Options générées :", options); // Vérifiez ici
 
-  let image = "../server/images/default-avatar.jpg";
+  let image = "../server/images/default-avatar.svg";
 
   html = html.replace("{{image}}", image);
   html = html.replace("{{profiles}}", options);

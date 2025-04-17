@@ -10,6 +10,7 @@
   --color-blue: hsl(240, 41.2%, 13.3%);
   --color-middleblue: hsl(246.1, 53.9%, 32.4%);
   --color-lightblue: hsl(180, 100%, 24.3%);
+  --color-red: hsl(0, 100%, 50%);
   --ff-sans: "Poppins", sans-serif;
 
   /* Sementic Tokens */

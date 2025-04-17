@@ -1,4 +1,5 @@
 .cardreco {
+  margin-top: 4rem;
   font-family: var(--ff-sans);
   position: relative;
   display: flex;
