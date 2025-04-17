@@ -19,6 +19,7 @@ Movie.format = function (movies) {
       "{{handlerdeleteFavoris}}",
       `C.handlerdeleteFavoris(${movie.id})`
     );
+
     cardsHTML += card;
   }
 

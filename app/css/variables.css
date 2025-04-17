@@ -4,10 +4,11 @@
   /* Primitive Tokens */
   --color-black: hsl(253, 69%, 8%);
   --color-white: hsl(0, 0%, 100%);
-  --color-gray-light: hsl(0, 0%, 80%);
+  --color-gray-light: hsl(0, 13%, 90%);
   --color-gray: hsl(0, 0%, 70.2%);
   --color-gray-dark: hsl(0, 0%, 20%);
   --color-blue: hsl(240, 41.2%, 13.3%);
+  --color-middleblue: hsl(246.1, 53.9%, 32.4%);
   --color-lightblue: hsl(180, 100%, 24.3%);
   --ff-sans: "Poppins", sans-serif;
 

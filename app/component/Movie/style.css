@@ -1,26 +1,45 @@
 body {
   background-color: var(--color-blue);
 }
-.cards {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  padding-top: 2rem;
-  grid-gap: 0.5rem;
-  align-items: center;
-  padding: 1rem;
+.carousel-wrapper {
+  position: relative;
 }
 
-.card {
-  position: relative;
-  width: 100%;
-  max-width: 18rem;
-  margin: auto;
+.cards {
   display: flex;
-  flex-direction: column;
-  border: 0.5rem;
-  border-radius: 5%;
-  text-align: center;
+  align-items: stretch;
+  padding: 1rem;
+  padding-left: 8rem;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+
+  /* Masquer la scrollbar */
+  scrollbar-width: none;
 }
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.scroll-btn.left {
+  left: 0.5rem;
+}
+
+.scroll-btn.right {
+  right: 0.5rem;
+}
+
 .card:hover {
   transform: scale(1.1);
 }
@@ -70,6 +89,7 @@ body {
 .trash-icon:hover {
   stroke: red; /* Change la couleur au survol */
 }
+
 @media (max-width: 34rem) {
   .cards {
     display: grid;

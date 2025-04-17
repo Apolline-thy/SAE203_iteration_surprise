@@ -3,14 +3,14 @@
     <div class="film__text">
       <p class="film__item">{{category}}</p>
       <h3 class="film__titre">{{name}}</h3>
-      <p class="film__item">{{year}}</p>
+      <p class="film__item--year">{{year}}</p>
       <p class="film__description">{{description}}</p>
       <button class="film__button">▶ Regarder</button>
     </div>
     <iframe
       class="film__trailer"
       width="60%"
-      height="315"
+      height="400"
       src="{{trailer}}"
       title="Trailer du film"
       frameborder="0"
@@ -19,9 +19,11 @@
     >
     </iframe>
   </div>
-  <h4 class="film__titre">A propos</h4>
-  <p class="film__description--realisateur">Réalisateurs : {{director}}</p>
-  <ul class="film__list">
-    <li class="film__item--age">{{min_age}}</li>
-  </ul>
+  <div class="film__apropos">
+    <h4 class="film__titre">A propos</h4>
+    <p class="film__description--realisateur">Réalisation : {{director}}</p>
+    <ul class="film__list">
+      <li class="film__item--age">{{min_age}}</li>
+    </ul>
+  </div>
 </div>

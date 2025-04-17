@@ -176,23 +176,24 @@
             "<p>Aucun film ne correspond à votre recherche.</p>";
         }
       };
-      C.scrollLeft = function () {
-        const cardsReco = document.querySelector(".cardsreco");
-        if (cardsReco) {
-          cardsReco.scrollBy({
-            left: -300,
-            behavior: "smooth",
-          });
+
+      window.C = {};
+
+      C.scrollLeftMovie = function () {
+        const cards = document.querySelector(".cards");
+        if (cards) {
+          cards.scrollBy({ left: -300, behavior: "smooth" });
+        } else {
+          console.warn("Pas de .cards trouvé !");
         }
       };
 
-      C.scrollRight = function () {
-        const cardsReco = document.querySelector(".cardsreco");
-        if (cardsReco) {
-          cardsReco.scrollBy({
-            left: 300,
-            behavior: "smooth",
-          });
+      C.scrollRightMovie = function () {
+        const cards = document.querySelector(".cards");
+        if (cards) {
+          cards.scrollBy({ left: 300, behavior: "smooth" });
+        } else {
+          console.warn("Pas de .cards trouvé !");
         }
       };
 

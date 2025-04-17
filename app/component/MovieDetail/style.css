@@ -1,3 +1,7 @@
+body {
+  margin-right: 5rem;
+}
+
 .film {
   color: white;
   font-family: var(--ff-sans);
@@ -12,7 +16,6 @@
 
 .film__titre {
   font-size: 2rem;
-  padding-bottom: 2rem;
 }
 
 .film__list {
@@ -31,7 +34,6 @@
 
 .film__trailer {
   border-radius: 5%;
-  padding: 1.5rem;
 }
 
 .film__content {
@@ -51,9 +53,9 @@
 }
 
 .film__item--age {
-  border: solid black;
+  color: var(--color-middleblue);
   border-radius: 2%;
-  background-color: rgb(224, 220, 220);
+  background-color: white;
   align-items: center;
   text-align: center;
   width: 3rem;
@@ -61,17 +63,28 @@
   border: none;
 }
 
+.film__item--year {
+  color: var(--color-gray-light);
+}
+
 .film__button {
   margin: 1rem;
   border-radius: 2rem;
-  padding: 0.5rem;
-  color: var(--color-blue);
+  padding: 1rem;
+  color: var(--color-middleblue);
   width: 30rem;
   border: none;
+  font-weight: 600;
 }
 
 .film__button :hover {
   background-color: var(--color-gray);
+}
+
+.film__apropos {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 @media (max-width: 34rem) {
