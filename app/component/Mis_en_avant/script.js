@@ -19,6 +19,7 @@ Mis_en_avant.format = function (obj) {
     card = card.replace("{{image}}", c.image);
     card = card.replace("{{description}}", c.description);
     card = card.replace("{{handler}}", `C.handlerDetail(${c.id})`);
+    card = card.replaceAll("{{id}}", c.id);
 
     // Ajouter chaque carte au HTML global des cartes
     cardsHTML += card;

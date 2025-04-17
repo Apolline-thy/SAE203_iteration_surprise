@@ -1,74 +1,65 @@
-.cardreco {
-  margin-top: 4rem;
-  font-family: var(--ff-sans);
+.carousel {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 31.25rem; /* 500px */
-  margin-bottom: 2rem;
-  cursor: pointer;
-  border-radius: 0.75rem; /* 12px */
   overflow: hidden;
 }
 
+.cardsreco {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 0.5rem;
+  transition: transform 0.5s ease;
+  scroll-behavior: smooth;
+}
+
+.cardreco {
+  position: relative;
+  flex: 0 0 auto;
+  width: 80%; /* Diminue légèrement la taille pour laisser de la place à la carte suivante */
+  height: 31.25rem;
+  margin: 0 1rem; /* Espacement entre les cartes */
+  border-radius: 1rem;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  z-index: 1;
+  opacity: 0.7; /* Donne un effet "distant" aux cartes non actives */
+}
+
+.cardreco.active {
+  z-index: 2; /* La carte active doit être au-dessus */
+  opacity: 1; /* Carte active avec opacité pleine */
+  transform: scale(1.1); /* Augmente la taille de la carte active */
+}
+
 .cardreco__img {
-  width: 70%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.75rem; /* 12px */
+  border-radius: 0.75rem;
 }
 
-.cardreco__content {
-  display: none;
-}
-
-.cardreco__titre {
-  font-size: 3rem; /* Taille du texte */
-  margin: 0 0 0.5rem 0; /* Espacement avec la description */
-}
-
-.cardreco__description {
-  bottom: 15rem;
-  font-size: 1rem; /* Taille de la description */
-  margin: 0 0 1rem 0; /* Espacement avec le bouton */
-  width: 20rem;
-}
-
-.cardreco__button {
-  background-color: white;
-  color: black;
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
-  border-radius: 1.875rem; /* 30px */
+  font-size: 2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1rem;
+  z-index: 10;
+  padding: 1rem;
 }
 
-.cardreco__button:hover {
-  background-color: black;
-  color: white;
-}
-.cardreco__firsttitre {
-  color: white;
-  font-family: var(--ff-sans);
-  padding-left: 4rem;
-  padding-bottom: 2rem;
+.scroll-btn.left {
+  left: 2%;
 }
 
-@media (min-width: 400px) {
-  .cardreco__content {
-    position: absolute; /* Superpose le contenu sur l'image */
-    padding: 1.5rem;
-    color: white;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-self: end;
-    padding-right: 30rem;
-    padding-left: 3rem;
-  }
+.scroll-btn.right {
+  right: 2%;
+}
+
+.cardsreco::-webkit-scrollbar {
+  display: none; /* Cache la barre de défilement */
 }

@@ -176,6 +176,21 @@
             "<p>Aucun film ne correspond à votre recherche.</p>";
         }
       };
+
+      C.scrollLeft = function () {
+        document.querySelector(".cardsreco").scrollBy({
+          left: -300,
+          behavior: "smooth",
+        });
+      };
+
+      C.scrollRight = function () {
+        document.querySelector(".cardsreco").scrollBy({
+          left: 300,
+          behavior: "smooth",
+        });
+      };
+
       C.start = async function () {
         let profiles = await DataProfile.read();
         if (!profiles || profiles.length === 0) {
