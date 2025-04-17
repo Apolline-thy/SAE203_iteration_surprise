@@ -1,5 +1,5 @@
-<div class="carousel-wrapper">
-  <button class="scroll-btn left">
+<div class="carousel-portrait">
+  <button class="scroll-btn-portrait left" onclick="C.scrollLeftMovie()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -11,10 +11,8 @@
       />
     </svg>
   </button>
-
-  <section class="cards">{{cards}}</section>
-
-  <button class="scroll-btn right" ">
+  <div class="cards-portrait">{{cards}}</div>
+  <button class="scroll-btn-portrait right" onclick="C.scrollRightMovie()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"

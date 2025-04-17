@@ -191,6 +191,20 @@
         });
       };
 
+      C.scrollLeftMovie = function () {
+        document.querySelector(".cards-portrait").scrollBy({
+          left: -300,
+          behavior: "smooth",
+        });
+      };
+
+      C.scrollRightMovie = function () {
+        document.querySelector(".cards-portrait").scrollBy({
+          left: 300,
+          behavior: "smooth",
+        });
+      };
+
       C.start = async function () {
         let profiles = await DataProfile.read();
         if (!profiles || profiles.length === 0) {
