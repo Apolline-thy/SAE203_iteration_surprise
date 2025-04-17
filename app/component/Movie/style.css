@@ -92,6 +92,10 @@ body {
   stroke: var(--color-red);
 }
 
+.carousel-wrapper {
+  position: relative;
+}
+
 /* --- Responsive styles from small to large --- */
 
 @media (min-width: 481px) {

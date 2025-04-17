@@ -21,14 +21,11 @@
 }
 
 .cardreco__content {
-  position: absolute; /* Superpose le contenu sur l'image */
-  padding: 1.5rem;
-  color: white;
-  text-align: left;
+  display: none;
 }
 
 .cardreco__titre {
-  font-size: 8rem; /* Taille du texte */
+  font-size: 3rem; /* Taille du texte */
   margin: 0 0 0.5rem 0; /* Espacement avec la description */
 }
 
@@ -60,4 +57,18 @@
   font-family: var(--ff-sans);
   padding-left: 4rem;
   padding-bottom: 2rem;
+}
+
+@media (min-width: 400px) {
+  .cardreco__content {
+    position: absolute; /* Superpose le contenu sur l'image */
+    padding: 1.5rem;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    padding-right: 30rem;
+    padding-left: 3rem;
+  }
 }

@@ -176,25 +176,6 @@
             "<p>Aucun film ne correspond à votre recherche.</p>";
         }
       };
-
-      C.scrollLeftMovie = function () {
-        const cards = document.querySelector(".cards");
-        if (cards) {
-          cards.scrollBy({ left: -300, behavior: "smooth" });
-        } else {
-          console.warn("Pas de .cards trouvé !");
-        }
-      };
-
-      C.scrollRightMovie = function () {
-        const cards = document.querySelector(".cards");
-        if (cards) {
-          cards.scrollBy({ left: 300, behavior: "smooth" });
-        } else {
-          console.warn("Pas de .cards trouvé !");
-        }
-      };
-
       C.start = async function () {
         let profiles = await DataProfile.read();
         if (!profiles || profiles.length === 0) {
