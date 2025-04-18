@@ -5,13 +5,15 @@
 }
 
 .cardsreco {
+  font-family: var(--ff-sans);
   display: flex;
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  gap: 0.5rem;
+  gap: 0;
   transition: transform 0.5s ease;
   scroll-behavior: smooth;
+  margin-top: 3rem;
+  margin-bottom: 7rem;
 }
 
 .cardreco {
@@ -27,10 +29,11 @@
 }
 
 .cardreco__img {
-  width: 100%;
+  width: 90%;
   height: 100%;
   object-fit: cover;
   border-radius: 0.75rem;
+  object-position: center;
 }
 
 .scroll-btn {
@@ -56,4 +59,22 @@
 
 .cardsreco::-webkit-scrollbar {
   display: none; /* Cache la barre de défilement */
+}
+
+.cardreco__content {
+  color: white;
+  position: relative;
+  bottom: 18rem;
+  left: 5rem;
+  width: 20rem;
+}
+
+.cardreco__titre {
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 400px) {
+  .cardreco__content {
+    display: none;
+  }
 }

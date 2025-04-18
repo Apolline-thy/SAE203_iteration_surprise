@@ -18,13 +18,6 @@ body {
   font-size: 2rem;
 }
 
-.film__list {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  gap: 1rem;
-}
-
 .film__img {
   display: flex;
   max-width: 18rem;
@@ -56,14 +49,7 @@ body {
 }
 
 .film__item--age {
-  color: var(--color-middleblue);
-  border-radius: 2%;
-  background-color: white;
-  align-items: center;
-  text-align: center;
-  width: 3rem;
-  border-radius: 2rem;
-  border: none;
+  color: white;
 }
 
 .film__item--year {
@@ -97,6 +83,10 @@ body {
   background-color: #ccc; /* Choisis la couleur de la ligne */
   margin: 20px 0; /* Ajoute de l'espace avant et après la ligne */
   display: none; /* Par défaut, la ligne est cachée */
+}
+.film__item--year svg {
+  margin-right: 0.5rem; /* Espace entre l'icône et la date */
+  vertical-align: middle; /* Alignement vertical avec le texte */
 }
 
 @media (max-width: 34rem) {
